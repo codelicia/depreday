@@ -15,6 +15,12 @@ final class Phrases
         'When I grow up I want to be like you! %s days 🤩',
         'Awesome %s days! At least you are not a bug 🐞',
         'Happy birthday to you 🎶!!! %s days',
+        'Come on y\'all! This bug guys deserve an applause! %s days',
+        'Wow! %s days',
+        '%s days? You could have been my mother.',
+        'I wish you other %s days of a living deprecation comment!',
+        'What if I had %s free days as you do...',
+        '%s days ago... a new deprecation comment was born 🙈',
     ];
 
     public function random() : string
