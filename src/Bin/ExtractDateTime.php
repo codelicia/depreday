@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Malukenho\Depreday\Bin;
+namespace Codelicia\Depreday\Bin;
 
 use DateTimeImmutable;
 use Webmozart\Assert\Assert;
@@ -12,7 +12,7 @@ final class ExtractDateTime
 {
     private const GIT_BLAME_DATE_TIME = '/.+\(.+(\d{4}-\d{2}-\d{2}) /';
 
-    public function __invoke(string $content): DateTimeImmutable
+    public function __invoke(string $content) : DateTimeImmutable
     {
         Assert::regex($content, self::GIT_BLAME_DATE_TIME);
 

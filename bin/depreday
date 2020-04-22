@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use Malukenho\Depreday\Console\App;
+use Codelicia\Depreday\Console\App;
 use PackageVersions\Versions;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputArgument;
@@ -32,7 +32,7 @@ use Symfony\Component\Console\Input\InputArgument;
     /* @noinspection PhpIncludeInspection */
     require $autoloadPath;
 
-    (new Application('depreday', Versions::getVersion('malukenho/depreday')))
+    (new Application('depreday', Versions::getVersion('codelicia/depreday')))
         ->register('depreday')
         ->addArgument('dir', InputArgument::OPTIONAL, 'The directory (default: pwd)', getcwd())
         ->addArgument('extension', InputArgument::OPTIONAL, 'The file extension (default: php)', 'php')

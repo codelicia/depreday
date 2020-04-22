@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Malukenho\Depreday;
+namespace Codelicia\Depreday;
 
 use Symfony\Component\Finder\SplFileInfo;
 

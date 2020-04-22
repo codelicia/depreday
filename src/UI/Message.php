@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Malukenho\Depreday\UI;
+namespace Codelicia\Depreday\UI;
 
 use DateInterval;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -12,7 +12,7 @@ final class Message
 {
     public function findingDeprecation(OutputInterface $output, string $directory) : void
     {
-        $output->writeln("\nFinding deprecations in the directory: <info>" . $directory. "</info>\n\n");
+        $output->writeln("\nFinding deprecations in the directory: <info>" . $directory . "</info>\n\n");
     }
 
     public function deprecationFound(
@@ -31,7 +31,7 @@ final class Message
         $output->writeln('');
     }
 
-    public function done(OutputInterface $output): void
+    public function done(OutputInterface $output) : void
     {
         $output->writeln('done.');
     }

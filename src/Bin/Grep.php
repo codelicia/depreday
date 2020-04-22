@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Malukenho\Depreday\Bin;
+namespace Codelicia\Depreday\Bin;
 
 use ArrayObject;
-use Malukenho\Depreday\FileLine;
+use Codelicia\Depreday\FileLine;
 use Symfony\Component\Finder\Finder;
 use Webmozart\Assert\Assert;
+use function array_filter;
 use function array_keys;
 use function array_map;
 use function explode;
@@ -17,13 +18,13 @@ use const PHP_EOL;
 final class Grep
 {
     /** @return FileLine[]|ArrayObject<FileLine> */
-    public function __invoke(string $pattern, Finder $finder): ArrayObject
+    public function __invoke(string $pattern, Finder $finder) : ArrayObject
     {
         $collection = new ArrayObject();
         foreach ($finder as $file) {
             $lines = explode(PHP_EOL, $file->getContents());
 
-            $a = array_keys(array_filter(array_map(fn ($line) => stripos($line, $pattern), $lines)));
+            $a = array_keys(array_filter(array_map(static fn ($line) => stripos($line, $pattern), $lines)));
 
             if ($a === []) {
                 continue;
@@ -40,4 +41,3 @@ final class Grep
         return $collection;
     }
 }
-

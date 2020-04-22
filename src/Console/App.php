@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Malukenho\Depreday\Console;
+namespace Codelicia\Depreday\Console;
 
 use DateTimeImmutable;
-use Malukenho\Depreday\Bin\ExtractDateTime;
-use Malukenho\Depreday\Bin\Find;
-use Malukenho\Depreday\Bin\Grep;
-use Malukenho\Depreday\FileLine;
-use Malukenho\Depreday\Git\Blame;
-use Malukenho\Depreday\UI\Logo;
-use Malukenho\Depreday\UI\Message;
-use Malukenho\Depreday\UI\Phrases;
+use Codelicia\Depreday\Bin\ExtractDateTime;
+use Codelicia\Depreday\Bin\Find;
+use Codelicia\Depreday\Bin\Grep;
+use Codelicia\Depreday\FileLine;
+use Codelicia\Depreday\Git\Blame;
+use Codelicia\Depreday\UI\Logo;
+use Codelicia\Depreday\UI\Message;
+use Codelicia\Depreday\UI\Phrases;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use function array_map;
@@ -26,10 +26,10 @@ final class App
         $message          = new Message();
         $extractDateTime  = new ExtractDateTime();
         $currentDate      = new DateTimeImmutable('now');
-        $phrases          = new Phrases;
+        $phrases          = new Phrases();
         $currentDirectory = $input->getArgument('dir');
 
-        array_map([$output, 'writeln'], Logo::logo());
+        array_map([$output, 'writeln'], Logo::logoMap());
 
         $message->findingDeprecation($output, $currentDirectory);
 
@@ -41,7 +41,7 @@ final class App
 
         foreach ($files as $file) {
             $blameOutput = $gitBlame($file->getRealPath(), $file->line());
-            $lastChange = $extractDateTime($blameOutput);
+            $lastChange  = $extractDateTime($blameOutput);
 
             $message->deprecationFound($output, $file->getRealPath(), $file->line(), $phrases->random(), $lastChange->diff($currentDate));
         }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Malukenho\Depreday\Bin;
+namespace Codelicia\Depreday\Bin;
 
 use Symfony\Component\Finder\Finder;
 use function array_map;
@@ -48,4 +48,3 @@ final class Find
             ->name($this->getFeatureMatch());
     }
 }
-

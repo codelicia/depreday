@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Malukenho\Depreday\UI;
+namespace Codelicia\Depreday\UI;
 
+use function count;
 use function random_int;
 
 final class Phrases
@@ -16,7 +17,7 @@ final class Phrases
         'Happy birthday to you 🎶!!! %s days',
     ];
 
-    public function random(): string
+    public function random() : string
     {
         return self::CONGRATULATION[random_int(0, count(self::CONGRATULATION) - 1)];
     }

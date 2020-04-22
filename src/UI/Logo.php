@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Malukenho\Depreday\UI;
+namespace Codelicia\Depreday\UI;
 
 final class Logo
 {
@@ -18,7 +18,7 @@ final class Logo
     ];
 
     /** @psalm-return list<string> */
-    public static function logo(): array
+    public static function logoMap() : array
     {
         return self::LOGO;
     }

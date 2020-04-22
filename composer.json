@@ -1,9 +1,9 @@
 {
-    "name": "malukenho/depreday",
+    "name": "codelicia/depreday",
     "description": "Let's commemorate deprecations birthday 🎂",
     "type": "library",
     "license": "MIT",
-    "homepage": "https://github.com/malukenho/depreday",
+    "homepage": "https://github.com/codelicia/depreday",
     "keywords": [
         "deprecation",
         "code quality",
@@ -17,7 +17,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Malukenho\\Depreday\\": "src/"
+            "Codelicia\\Depreday\\": "src/"
         }
     },
     "require": {
