@@ -16,11 +16,12 @@ jobs:
                 with:
                     php-version: ${{ matrix.php-version }}
                     tools: composer
-            -   name: composer install
-                run: composer install
-            -   name: test
-                run: ./vendor/bin/phpunit
+            -   name: phpunit
+                run: |
+                    .Build/bin/phpunit
             -   name: phpcs
-                run: ./vendor/bin/phpunit
+                run: |
+                    .Build/bin/phpcs
             -   name: psalm
-                run: ./vendor/bin/psalm
+                run: |
+                    .Build/bin/psalm
