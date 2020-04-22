@@ -30,4 +30,9 @@ final class Message
         $output->writeln(sprintf($phrase, '<fg=red>' . $dateInterval->days . '</>'));
         $output->writeln('');
     }
+
+    public function done(OutputInterface $output): void
+    {
+        $output->writeln('done.');
+    }
 }
