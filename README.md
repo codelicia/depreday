@@ -28,6 +28,14 @@ depreday [<dir> [<extension> [<exclude>]]]
 - `extension`: `php`
 - `exclude`: [`vendor`, `var`, `cache`, `node_modules`]
 
+Limitations
+-----------
+
+1. It requires you to have the file commit in a git repository; 
+2. `codelicia/depreday` uses `git-blame` to check for changes in the line
+   that have the `deprecated` annotation. So it can be inaccurate as unrelated
+   changes in the file may cause the line to miss-computed as "changed".
+
 Contributors
 ------------
 
