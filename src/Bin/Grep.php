@@ -7,6 +7,7 @@ namespace Codelicia\Depreday\Bin;
 use ArrayObject;
 use Codelicia\Depreday\FileLine;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\Finder\SplFileInfo;
 use Webmozart\Assert\Assert;
 use function array_filter;
 use function array_keys;
@@ -26,7 +27,7 @@ final class Grep
     {
         $collection = new ArrayObject();
 
-        /** @psalm-var \Symfony\Component\Finder\SplFileInfo $file */
+        /** @psalm-var SplFileInfo $file */
         foreach ($finder as $file) {
             $lines = explode(PHP_EOL, $file->getContents());
 

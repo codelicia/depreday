@@ -22,6 +22,7 @@ final class App
 {
     public function __invoke(InputInterface $input, OutputInterface $output) : int
     {
+        $deprecationFound = false;
         $grep             = new Grep();
         $gitBlame         = new Blame();
         $message          = new Message();
@@ -51,6 +52,8 @@ final class App
             $blameOutput = $gitBlame($file->getRealPath(), $file->line());
             $lastChange  = $extractDateTime($blameOutput);
 
+            $deprecationFound = true;
+
             $message->deprecationFound(
                 $output,
                 $file->getRelativePathname(),
@@ -58,6 +61,10 @@ final class App
                 $phrases->random(),
                 $lastChange->diff($currentDate)
             );
+        }
+
+        if ($deprecationFound === false) {
+            $message->success($output);
         }
 
         $message->done($output);
