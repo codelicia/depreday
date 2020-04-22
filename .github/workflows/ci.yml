@@ -13,6 +13,7 @@ jobs:
             -   uses: shivammathur/setup-php@v2
             -   name: PHP Setup
                 uses: shivammathur/setup-php@v2
+                tools: composer
                 with:
                     php-version: ${{ matrix.php-version }}
             -   name: composer install
