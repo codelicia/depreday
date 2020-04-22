@@ -1,0 +1,25 @@
+name: Continous Integration
+on: [push]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                php-version: [7.4]
+
+        steps:
+            -   uses: actions/checkout@v1
+            -   name: PHP Setup
+                uses: actions/setup-php@v1
+                with:
+                    php-version: ${{ matrix.php-version }}
+            -   name: composer install
+                run: composer install
+            -   name: test
+                run: ./vendor/bin/phpunit
+            -   name: phpcs
+                run: ./vendor/bin/phpunit
+            -   name: psalm
+                run: ./vendor/bin/psalm
