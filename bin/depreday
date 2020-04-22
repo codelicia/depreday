@@ -6,13 +6,37 @@ use PackageVersions\Versions;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputArgument;
 
-// TODO: find autoload on other paths
-require __DIR__ . '/../vendor/autoload.php';
+(static function () : void {
+    $autoload = array_filter(
+        [
+            __DIR__ . '/../../../autoload.php',
+            __DIR__ . '/../../autoload.php',
+            __DIR__ . '/../vendor/autoload.php',
+        ],
+        'is_file'
+    );
 
-(new Application('depreday', Versions::getVersion('malukenho/depreday')))
-    ->register('depreday')
-    ->addArgument('dir', InputArgument::OPTIONAL, 'The directory')
-    ->setCode(new App())
-    ->getApplication()
-    ->setDefaultCommand('depreday', true)
-    ->run();
+    if (! count($autoload)) {
+        fwrite(
+            STDERR,
+            'You need to set up the project dependencies using the following commands:' . PHP_EOL .
+            'wget http://getcomposer.org/composer.phar' . PHP_EOL .
+            'php composer.phar install' . PHP_EOL
+        );
+
+        die(1);
+    }
+
+    $autoloadPath = realpath(current($autoload));
+
+    /* @noinspection PhpIncludeInspection */
+    require $autoloadPath;
+
+    (new Application('depreday', Versions::getVersion('malukenho/depreday')))
+        ->register('depreday')
+        ->addArgument('dir', InputArgument::OPTIONAL, 'The directory')
+        ->setCode(new App())
+        ->getApplication()
+        ->setDefaultCommand('depreday', true)
+        ->run();
+})();
