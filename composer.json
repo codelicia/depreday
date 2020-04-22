@@ -20,6 +20,11 @@
             "Codelicia\\Depreday\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "CodeliciaTest\\Depreday\\": "tests/"
+        }
+    },
     "require": {
         "php": "^7.4",
         "symfony/finder": "^5.0",
