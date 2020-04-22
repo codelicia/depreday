@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+use Malukenho\Depreday\Console\App;
+use PackageVersions\Versions;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\InputArgument;
+
+// TODO: find autoload on other paths
+require __DIR__ . '/../vendor/autoload.php';
+
+(new Application('depreday', Versions::getVersion('malukenho/depreday')))
+    ->register('depreday')
+    ->addArgument('dir', InputArgument::OPTIONAL, 'The directory')
+    ->setCode(new App())
+    ->getApplication()
+    ->setDefaultCommand('depreday', true)
+    ->run();
