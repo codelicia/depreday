@@ -30,18 +30,18 @@ final class Grep
         foreach ($finder as $file) {
             $lines = explode(PHP_EOL, $file->getContents());
 
-            $a = array_keys(array_filter(array_map(static fn ($line) => stripos($line, $pattern), $lines)));
+            $cur = array_keys(array_filter(array_map(static fn ($line) => stripos($line, $pattern), $lines)));
 
-            if ($a === []) {
+            if ($cur === []) {
                 continue;
             }
 
-            Assert::keyExists($a, 0);
+            Assert::keyExists($cur, 0);
 
             // We need to add +1 to the line number as
             // arrays start by 0 and there is no such thing
             // when we are counting line numbers.
-            $collection->append(new FileLine($a[0] + 1, $file));
+            $collection->append(new FileLine($cur[0] + 1, $file));
         }
 
         return $collection;
