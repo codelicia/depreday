@@ -31,7 +31,10 @@ final class Grep
 
             Assert::keyExists($a, 0);
 
-            $collection->append(new FileLine($a[0], $file));
+            // We need to add +1 to the line number as
+            // arrays start by 0 and there is no such thing
+            // when we are counting line numbers.
+            $collection->append(new FileLine($a[0] + 1, $file));
         }
 
         return $collection;
