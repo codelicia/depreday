@@ -53,7 +53,7 @@ final class App
 
             $message->deprecationFound(
                 $output,
-                $file->getRealPath(),
+                $file->getRelativePathname(),
                 $file->line(),
                 $phrases->random(),
                 $lastChange->diff($currentDate)

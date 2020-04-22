@@ -22,9 +22,9 @@ final class FileLine
         return $this->line;
     }
 
-    public function getRelativePath() : string
+    public function getRelativePathname() : string
     {
-        return $this->file->getRelativePath();
+        return $this->file->getRelativePathname();
     }
 
     public function getRealPath() : string
