@@ -1,10 +1,7 @@
 🎂 Depreday
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 ===========
 
-Now you have the change to commemorate important deprecation day marks
+Now you have the chance to commemorate important deprecation day marks
 with your colleagues at work. After all, we have to celebrate our 
 achievements.
 
@@ -39,18 +36,8 @@ Limitations
    that have the `deprecated` annotation. So it can be inaccurate as unrelated
    changes in the file may cause the line to miss-computed as "changed".
 
-Contributors
-------------
-
-<!-- ALL-CONTRIBUTORS-BADGE:START -->
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
-Author
-------
-
-- Jefersson Nathan ([@malukenho](http://github.com/malukenho))
-
-## Contributors ✨
+Contributors ✨
+---------------
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -68,3 +55,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+Author
+------
+
+- Jefersson Nathan ([@malukenho](http://github.com/malukenho))
