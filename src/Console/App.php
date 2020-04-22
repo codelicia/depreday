@@ -16,7 +16,6 @@ use Malukenho\Depreday\UI\Phrases;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use function array_map;
-use function getcwd;
 
 final class App
 {
@@ -28,17 +27,14 @@ final class App
         $extractDateTime  = new ExtractDateTime();
         $currentDate      = new DateTimeImmutable('now');
         $phrases          = new Phrases;
-        $currentDirectory = getcwd();
+        $currentDirectory = $input->getArgument('dir');
 
         array_map([$output, 'writeln'], Logo::logo());
 
         $message->findingDeprecation($output, $currentDirectory);
 
-        // TODO: make it configurable?
-        // Make it work as just information?
-        // Configure it to fail when a certain amount of days pass? or configure it on the comment itself?
-        $ls          = new Find($currentDirectory, ['php']);
-        $listOfFiles = $ls(['vendor', 'var', 'cache', 'node_modules']);
+        $ls          = new Find($currentDirectory, [$input->getArgument('extension')]);
+        $listOfFiles = $ls($input->getArgument('exclude'));
 
         /** @var FileLine[] $files */
         $files = $grep('@deprecated', $listOfFiles);
