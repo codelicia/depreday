@@ -17,10 +17,16 @@ use const PHP_EOL;
 
 final class Grep
 {
-    /** @return FileLine[]|ArrayObject<FileLine> */
+    /**
+     * @return FileLine[]|ArrayObject<FileLine>
+     *
+     * @psalm-return ArrayObject
+     */
     public function __invoke(string $pattern, Finder $finder) : ArrayObject
     {
         $collection = new ArrayObject();
+
+        /** @psalm-var \Symfony\Component\Finder\SplFileInfo $file */
         foreach ($finder as $file) {
             $lines = explode(PHP_EOL, $file->getContents());
 

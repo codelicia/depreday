@@ -6,6 +6,7 @@ namespace Codelicia\Depreday\UI;
 
 use DateInterval;
 use Symfony\Component\Console\Output\OutputInterface;
+use Webmozart\Assert\Assert;
 use function sprintf;
 
 final class Message
@@ -25,6 +26,8 @@ final class Message
         if ($dateInterval->days === 0) {
             return;
         }
+
+        Assert::integer($dateInterval->days);
 
         $output->writeln(sprintf('<info>%s</info>:<fg=yellow>%s</>', $fileRealPath, $cursorPosition));
         $output->writeln(sprintf($phrase, '<fg=red>' . $dateInterval->days . '</>'));

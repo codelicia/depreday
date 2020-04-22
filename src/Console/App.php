@@ -15,6 +15,7 @@ use Codelicia\Depreday\UI\Phrases;
 use DateTimeImmutable;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Webmozart\Assert\Assert;
 use function array_map;
 
 final class App
@@ -28,13 +29,20 @@ final class App
         $currentDate      = new DateTimeImmutable('now');
         $phrases          = new Phrases();
         $currentDirectory = $input->getArgument('dir');
+        $extension        = $input->getArgument('extension');
+        $exclude          = $input->getArgument('exclude');
+
+        Assert::isArray($exclude);
+        Assert::string($extension);
+        Assert::string($currentDirectory);
 
         array_map([$output, 'writeln'], Logo::logoMap());
 
         $message->findingDeprecation($output, $currentDirectory);
 
-        $ls          = new Find($currentDirectory, [$input->getArgument('extension')]);
-        $listOfFiles = $ls($input->getArgument('exclude'));
+        /** @psalm-var list<string> $exclude */
+        $ls          = new Find($currentDirectory, [$extension]);
+        $listOfFiles = $ls($exclude);
 
         /** @var FileLine[] $files */
         $files = $grep('@deprecated', $listOfFiles);

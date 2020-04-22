@@ -20,6 +20,10 @@ final class ExtractDateTime
 
         Assert::keyExists($matches, 1);
 
-        return DateTimeImmutable::createFromFormat('Y-m-d', $matches[1]);
+        $date = DateTimeImmutable::createFromFormat('Y-m-d', $matches[1]);
+
+        Assert::notFalse($date);
+
+        return $date;
     }
 }

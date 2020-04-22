@@ -17,7 +17,7 @@ final class Logo
         [''],
     ];
 
-    /** @psalm-return list<string> */
+    /** @return string[][] */
     public static function logoMap() : array
     {
         return self::LOGO;
