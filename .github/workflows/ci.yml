@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                php-version: ['7.4', '8.0']
+                php-version: ['7.4']
 
         steps:
             -   uses: shivammathur/setup-php@v2
@@ -35,4 +35,4 @@ jobs:
 
             -   name: psalm
                 run: |
-                    ./vendor/bin/psalm
+                    ./vendor/bin/psalm --report=github
