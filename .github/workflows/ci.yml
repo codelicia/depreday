@@ -2,33 +2,33 @@ name: Continous Integration
 on: [push]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                php-version: ['7.4']
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ['7.4']
 
-        steps:
-            -   uses: shivammathur/setup-php@v2
+    steps:
+      - uses: shivammathur/setup-php@v2
 
-            -   name: PHP Setup
-                uses: shivammathur/setup-php@v2
-                with:
-                    php-version: ${{ matrix.php-version }}
-                    tools: composer
+      - name: PHP Setup
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          tools: composer
 
-            -   uses: actions/checkout@v1
-                with:
-                    fetch-depth: 1
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
 
-            -   name: composer
-                run: composer install
+      - name: composer
+        run: composer install
 
-            -   name: phpunit
-                run: ./vendor/bin/phpunit
+      - name: phpunit
+        run: ./vendor/bin/phpunit
 
-            -   name: phpcs
-                run: ./vendor/bin/phpcs
+      - name: phpcs
+        run: ./vendor/bin/phpcs
 
-            -   name: psalm
-                run: ./vendor/bin/psalm
+      - name: psalm
+        run: ./vendor/bin/psalm
