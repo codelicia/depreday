@@ -6,7 +6,6 @@
         totallyTyped="true"
 >
     <projectFiles>
-        <directory name="tests"/>
         <directory name="src"/>
     </projectFiles>
 </psalm>
