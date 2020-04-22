@@ -4,24 +4,35 @@ on: [push]
 jobs:
     build:
         runs-on: ubuntu-latest
-
         strategy:
             matrix:
                 php-version: ['7.4', '8.0']
 
         steps:
             -   uses: shivammathur/setup-php@v2
+
             -   name: PHP Setup
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: ${{ matrix.php-version }}
                     tools: composer
+
+            -   uses: actions/checkout@v1
+                with:
+                    fetch-depth: 1
+
+            -   name: composer
+                run: |
+                    composer install
+
             -   name: phpunit
                 run: |
-                    .Build/bin/phpunit
+                    ./vendor/bin/phpunit
+
             -   name: phpcs
                 run: |
-                    .Build/bin/phpcs
+                    ./vendor/bin/phpcs
+
             -   name: psalm
                 run: |
-                    .Build/bin/psalm
+                    ./vendor/bin/psalm
