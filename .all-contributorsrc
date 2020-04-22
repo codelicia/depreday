@@ -14,6 +14,15 @@
         "maintenance",
         "code"
       ]
+    },
+    {
+      "login": "batusa",
+      "name": "Emmerson Siqueira",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5388003?v=4",
+      "profile": "https://github.com/batusa",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
