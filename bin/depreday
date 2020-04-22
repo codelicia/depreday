@@ -5,6 +5,7 @@ use Codelicia\Depreday\Console\App;
 use PackageVersions\Versions;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
 
 (static function () : void {
     $autoload = array_filter(
@@ -35,10 +36,11 @@ use Symfony\Component\Console\Input\InputArgument;
     (new Application('depreday', Versions::getVersion('codelicia/depreday')))
         ->register('depreday')
         ->addArgument('dir', InputArgument::OPTIONAL, 'The directory (default: pwd)', getcwd())
-        ->addArgument('extension', InputArgument::OPTIONAL, 'The file extension (default: php)', 'php')
-        ->addArgument(
+        ->addOption('extension', 'x', InputOption::VALUE_OPTIONAL, 'The file extension (default: php)', 'php')
+        ->addOption(
             'exclude',
-            InputArgument::OPTIONAL,
+            'e',
+            InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL,
             'The files/folder to be excluded (default: vendor,var, cache,node_modules)',
             ['vendor', 'var', 'cache', 'node_modules']
         )

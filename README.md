@@ -19,7 +19,7 @@ Usage
 -----
 
 ```
-depreday [<dir> [<extension> [<exclude>]]]
+depreday [-x|--extension [EXTENSION]] [-e|--exclude [EXCLUDE]] [--] [<dir>]
 ```
 
 **default values**:

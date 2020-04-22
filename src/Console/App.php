@@ -29,8 +29,8 @@ final class App
         $currentDate      = new DateTimeImmutable('now');
         $phrases          = new Phrases();
         $currentDirectory = $input->getArgument('dir');
-        $extension        = $input->getArgument('extension');
-        $exclude          = $input->getArgument('exclude');
+        $extension        = $input->getOption('extension');
+        $exclude          = $input->getOption('exclude');
 
         Assert::isArray($exclude);
         Assert::string($extension);
