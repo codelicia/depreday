@@ -18,7 +18,7 @@ final class Logo
     ];
 
     /** @return string[][] */
-    public static function logoMap() : array
+    public static function logoMap(): array
     {
         return self::LOGO;
     }

@@ -23,7 +23,7 @@ final class Phrases
         '%s days ago... a new deprecation comment was born 🙈',
     ];
 
-    public function random() : string
+    public function random(): string
     {
         return self::CONGRATULATION[random_int(0, count(self::CONGRATULATION) - 1)];
     }

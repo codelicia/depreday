@@ -9,11 +9,13 @@ use Codelicia\Depreday\FileLine;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use Webmozart\Assert\Assert;
+
 use function array_filter;
 use function array_keys;
 use function array_map;
 use function explode;
 use function stripos;
+
 use const PHP_EOL;
 
 final class Grep
@@ -23,7 +25,7 @@ final class Grep
      *
      * @psalm-return ArrayObject
      */
-    public function __invoke(string $pattern, Finder $finder) : ArrayObject
+    public function __invoke(string $pattern, Finder $finder): ArrayObject
     {
         $collection = new ArrayObject();
 

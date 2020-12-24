@@ -16,11 +16,12 @@ use DateTimeImmutable;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Webmozart\Assert\Assert;
+
 use function array_map;
 
 final class App
 {
-    public function __invoke(InputInterface $input, OutputInterface $output) : int
+    public function __invoke(InputInterface $input, OutputInterface $output): int
     {
         $deprecationFound = false;
         $grep             = new Grep();
