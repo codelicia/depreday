@@ -17,17 +17,17 @@ final class FileLine
         $this->file = $file;
     }
 
-    public function line() : int
+    public function line(): int
     {
         return $this->line;
     }
 
-    public function getRelativePathname() : string
+    public function getRelativePathname(): string
     {
         return $this->file->getRelativePathname();
     }
 
-    public function getRealPath() : string
+    public function getRealPath(): string
     {
         return $this->file->getRealPath();
     }

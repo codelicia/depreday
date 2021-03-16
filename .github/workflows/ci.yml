@@ -1,12 +1,12 @@
 name: Continous Integration
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version: ['7.4']
+        php-version: ['7.4', '8.0']
 
     steps:
       - uses: shivammathur/setup-php@v2
