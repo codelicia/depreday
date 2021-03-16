@@ -46,14 +46,16 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://twitter.com/malukenho"><img src="https://avatars2.githubusercontent.com/u/3275172?v=4" width="100px;" alt=""/><br /><sub><b>Jefersson Nathan</b></sub></a><br /><a href="#maintenance-malukenho" title="Maintenance">🚧</a> <a href="https://github.com/codelicia/depreday/commits?author=malukenho" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/batusa"><img src="https://avatars3.githubusercontent.com/u/5388003?v=4" width="100px;" alt=""/><br /><sub><b>Emmerson Siqueira</b></sub></a><br /><a href="https://github.com/codelicia/depreday/pulls?q=is%3Apr+reviewed-by%3Abatusa" title="Reviewed Pull Requests">👀</a></td>
-    <td align="center"><a href="http://about:blank"><img src="https://avatars0.githubusercontent.com/u/398034?v=4" width="100px;" alt=""/><br /><sub><b>Alexandre Eher</b></sub></a><br /><a href="#ideas-EHER" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://twitter.com/malukenho"><img src="https://avatars2.githubusercontent.com/u/3275172?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jefersson Nathan</b></sub></a><br /><a href="#maintenance-malukenho" title="Maintenance">🚧</a> <a href="https://github.com/codelicia/depreday/commits?author=malukenho" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/batusa"><img src="https://avatars3.githubusercontent.com/u/5388003?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Emmerson Siqueira</b></sub></a><br /><a href="https://github.com/codelicia/depreday/pulls?q=is%3Apr+reviewed-by%3Abatusa" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="http://about:blank"><img src="https://avatars0.githubusercontent.com/u/398034?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Alexandre Eher</b></sub></a><br /><a href="#ideas-EHER" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://peterli.website/"><img src="https://avatars.githubusercontent.com/u/9021747?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Chun-Sheng, Li</b></sub></a><br /><a href="https://github.com/codelicia/depreday/commits?author=peter279k" title="Code">💻</a></td>
   </tr>
 </table>
 
-<!-- markdownlint-enable -->
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
