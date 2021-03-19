@@ -33,7 +33,7 @@ final class Grep
         foreach ($finder as $file) {
             $lines = explode(PHP_EOL, $file->getContents());
 
-            $cur = array_keys(array_filter(array_map(static fn ($line) => stripos($line, $pattern), $lines)));
+            $cur = array_keys(array_filter(array_map(static fn (string $line) => stripos($line, $pattern), $lines)));
 
             if ($cur === []) {
                 continue;
