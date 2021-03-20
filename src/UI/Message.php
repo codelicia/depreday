@@ -43,6 +43,7 @@ final class Message
         $output->writeln('');
     }
 
+    /** @throws \Exception */
     public function success(OutputInterface $output): void
     {
         $output->writeln(sprintf("%s\n\n", self::SUCCESS[random_int(0, count(self::SUCCESS) - 1)]));

@@ -23,6 +23,7 @@ final class Phrases
         '%s days ago... a new deprecation comment was born 🙈',
     ];
 
+    /** @throws \Exception */
     public function random(): string
     {
         return self::CONGRATULATION[random_int(0, count(self::CONGRATULATION) - 1)];
