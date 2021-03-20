@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Codelicia\Depreday\UI;
 
+use Exception;
+
 use function count;
 use function random_int;
 
@@ -23,7 +25,7 @@ final class Phrases
         '%s days ago... a new deprecation comment was born 🙈',
     ];
 
-    /** @throws \Exception */
+    /** @throws Exception */
     public function random(): string
     {
         return self::CONGRATULATION[random_int(0, count(self::CONGRATULATION) - 1)];

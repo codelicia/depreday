@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Codelicia\Depreday\UI;
 
 use DateInterval;
+use Exception;
 use Symfony\Component\Console\Output\OutputInterface;
 use Webmozart\Assert\Assert;
 
@@ -43,7 +44,7 @@ final class Message
         $output->writeln('');
     }
 
-    /** @throws \Exception */
+    /** @throws Exception */
     public function success(OutputInterface $output): void
     {
         $output->writeln(sprintf("%s\n\n", self::SUCCESS[random_int(0, count(self::SUCCESS) - 1)]));
