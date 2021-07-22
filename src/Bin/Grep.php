@@ -22,7 +22,6 @@ final class Grep
 {
     /**
      * @return FileLine[]|ArrayObject<FileLine>
-     *
      * @psalm-return ArrayObject
      */
     public function __invoke(string $pattern, Finder $finder): ArrayObject
