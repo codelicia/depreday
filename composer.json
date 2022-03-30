@@ -40,5 +40,10 @@
     },
     "bin": [
         "bin/depreday"
-    ]
+    ],
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
 }
