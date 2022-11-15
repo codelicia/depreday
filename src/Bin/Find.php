@@ -14,16 +14,11 @@ use function sprintf;
 
 final class Find
 {
-    private string $directoryOrFile;
-
-    /** @psalm-var list<string> */
-    private array $supportedExtensions;
-
     /** @psalm-param list<string> $supportedExtensions */
-    public function __construct(string $directoryOrFile, array $supportedExtensions)
-    {
-        $this->directoryOrFile     = $directoryOrFile;
-        $this->supportedExtensions = $supportedExtensions;
+    public function __construct(
+        private readonly string $directoryOrFile,
+        private readonly array $supportedExtensions
+    ) {
     }
 
     private function getDirectory(): string

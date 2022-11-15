@@ -8,18 +8,10 @@ use Symfony\Component\Finder\SplFileInfo;
 
 final class FileLine
 {
-    private int $line;
-    private SplFileInfo $file;
-
-    public function __construct(int $line, SplFileInfo $file)
-    {
-        $this->line = $line;
-        $this->file = $file;
-    }
-
-    public function line(): int
-    {
-        return $this->line;
+    public function __construct(
+        public readonly int $line,
+        private readonly SplFileInfo $file
+    ) {
     }
 
     public function getRelativePathname(): string

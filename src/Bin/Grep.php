@@ -7,7 +7,6 @@ namespace Codelicia\Depreday\Bin;
 use ArrayObject;
 use Codelicia\Depreday\FileLine;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\Finder\SplFileInfo;
 use Webmozart\Assert\Assert;
 
 use function array_filter;
@@ -21,14 +20,13 @@ use const PHP_EOL;
 final class Grep
 {
     /**
-     * @return FileLine[]|ArrayObject<FileLine>
+     * @return FileLine[]&ArrayObject<FileLine>
      * @psalm-return ArrayObject
      */
     public function __invoke(string $pattern, Finder $finder): ArrayObject
     {
         $collection = new ArrayObject();
 
-        /** @psalm-var SplFileInfo $file */
         foreach ($finder as $file) {
             $lines = explode(PHP_EOL, $file->getContents());
 
@@ -42,7 +40,7 @@ final class Grep
 
             // We need to add +1 to the line number as
             // arrays start by 0 and there is no such thing
-            // when we are counting line numbers.
+            // as a line 0.
             $collection->append(new FileLine($cur[0] + 1, $file));
         }
 

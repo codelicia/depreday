@@ -13,6 +13,8 @@ use Codelicia\Depreday\UI\Logo;
 use Codelicia\Depreday\UI\Message;
 use Codelicia\Depreday\UI\Phrases;
 use DateTimeImmutable;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Webmozart\Assert\Assert;
@@ -42,7 +44,7 @@ final class App
 
         $message->findingDeprecation($output, $currentDirectory);
 
-        /** @psalm-var list<string> $exclude */
+        /** @psalm-var list<non-empty-string> $exclude */
         $ls          = new Find($currentDirectory, [$extension]);
         $listOfFiles = $ls($exclude);
 
@@ -50,7 +52,7 @@ final class App
         $files = $grep('@deprecated', $listOfFiles);
 
         foreach ($files as $file) {
-            $blameOutput = $gitBlame($file->getRealPath(), $file->line());
+            $blameOutput = $gitBlame($file->getRealPath(), $file->line);
             $lastChange  = $extractDateTime($blameOutput);
 
             $deprecationFound = true;
@@ -58,7 +60,7 @@ final class App
             $message->deprecationFound(
                 $output,
                 $file->getRelativePathname(),
-                $file->line(),
+                $file->line,
                 $phrases->random(),
                 $lastChange->diff($currentDate)
             );
@@ -70,6 +72,6 @@ final class App
 
         $message->done($output);
 
-        return 0;
+        return Command::SUCCESS;
     }
 }

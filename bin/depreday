@@ -2,6 +2,7 @@
 <?php
 
 use Codelicia\Depreday\Console\App;
+use Composer\InstalledVersions;
 use PackageVersions\Versions;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputArgument;
@@ -21,19 +22,19 @@ use Symfony\Component\Console\Input\InputOption;
         fwrite(
             STDERR,
             'You need to set up the project dependencies using the following commands:' . PHP_EOL .
-            'wget http://getcomposer.org/composer.phar' . PHP_EOL .
+            'wget https://getcomposer.org/composer.phar' . PHP_EOL .
             'php composer.phar install' . PHP_EOL
         );
 
         die(1);
     }
 
+    /** @var non-empty-string $autoloadPath */
     $autoloadPath = realpath(current($autoload));
 
-    /* @noinspection PhpIncludeInspection */
     require $autoloadPath;
 
-    (new Application('depreday', Versions::getVersion('codelicia/depreday')))
+    (new Application('depreday', (string) InstalledVersions::getPrettyVersion('codelicia/depreday')))
         ->register('depreday')
         ->addArgument('dir', InputArgument::OPTIONAL, 'The directory (default: pwd)', getcwd())
         ->addOption('extension', 'x', InputOption::VALUE_OPTIONAL, 'The file extension (default: php)', 'php')
@@ -46,6 +47,6 @@ use Symfony\Component\Console\Input\InputOption;
         )
         ->setCode(new App())
         ->getApplication()
-        ->setDefaultCommand('depreday', true)
+        ?->setDefaultCommand('depreday', true)
         ->run();
 })();
