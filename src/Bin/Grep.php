@@ -7,7 +7,7 @@ namespace Codelicia\Depreday\Bin;
 use ArrayObject;
 use Codelicia\Depreday\FileLine;
 use Symfony\Component\Finder\Finder;
-use Webmozart\Assert\Assert;
+use Psl;
 
 use function array_filter;
 use function array_keys;
@@ -36,7 +36,7 @@ final class Grep
                 continue;
             }
 
-            Assert::keyExists($cur, 0);
+            Psl\invariant(array_is_list($cur), '$cur is not a list<int, mixed>.');
 
             // We need to add +1 to the line number as
             // arrays start by 0 and there is no such thing

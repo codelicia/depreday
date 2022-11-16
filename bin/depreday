@@ -3,7 +3,6 @@
 
 use Codelicia\Depreday\Console\App;
 use Composer\InstalledVersions;
-use PackageVersions\Versions;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
@@ -15,7 +14,7 @@ use Symfony\Component\Console\Input\InputOption;
             __DIR__ . '/../../autoload.php',
             __DIR__ . '/../vendor/autoload.php',
         ],
-        'is_file'
+        is_file(...)
     );
 
     if (! count($autoload)) {
@@ -31,6 +30,8 @@ use Symfony\Component\Console\Input\InputOption;
 
     /** @var non-empty-string $autoloadPath */
     $autoloadPath = realpath(current($autoload));
+
+    Psl\invariant(file_exists($autoloadPath), 'Expected $autoloadPath to exist. Did you install the composer dependencies?');
 
     require $autoloadPath;
 

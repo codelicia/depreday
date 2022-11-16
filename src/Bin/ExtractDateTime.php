@@ -6,6 +6,7 @@ namespace Codelicia\Depreday\Bin;
 
 use DateTimeImmutable;
 use Webmozart\Assert\Assert;
+use Psl;
 
 use function preg_match;
 
@@ -19,7 +20,7 @@ final class ExtractDateTime
 
         preg_match(self::GIT_BLAME_DATE_TIME, $content, $matches);
 
-        Assert::keyExists($matches, 1);
+        Psl\invariant(array_key_exists(1, $matches), 'Expected $matches[1] to exists.');
 
         $date = DateTimeImmutable::createFromFormat('Y-m-d', $matches[1]);
 

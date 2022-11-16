@@ -7,7 +7,7 @@ namespace Codelicia\Depreday\UI;
 use DateInterval;
 use Exception;
 use Symfony\Component\Console\Output\OutputInterface;
-use Webmozart\Assert\Assert;
+use Psl;
 
 use function count;
 use function random_int;
@@ -23,7 +23,7 @@ final class Message
 
     public function findingDeprecation(OutputInterface $output, string $directory): void
     {
-        $output->writeln("\nFinding deprecations in the directory: <info>" . $directory . "</info>\n\n");
+        $output->writeln(Psl\Str\format("\nFinding deprecations in the directory: <info>%s</info>\n\n", $directory));
     }
 
     public function deprecationFound(
@@ -37,7 +37,7 @@ final class Message
             return;
         }
 
-        Assert::integer($dateInterval->days);
+        Psl\invariant(is_int($dateInterval->days), 'Expected $dataInterval->days to be an integer.');
 
         $output->writeln(sprintf('<info>%s</info>:<fg=yellow>%s</>', $fileRealPath, $cursorPosition));
         $output->writeln(sprintf($phrase, '<fg=red>' . $dateInterval->days . '</>'));
