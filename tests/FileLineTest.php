@@ -24,6 +24,6 @@ final class FileLineTest extends TestCase
 
         self::assertSame($tempFile, $fileLine->getRelativePathname());
         self::assertSame($tempFile, $fileLine->getRealPath());
-        self::assertSame($line, $fileLine->line());
+        self::assertSame($line, $fileLine->line);
     }
 }

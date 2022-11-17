@@ -36,8 +36,6 @@ final class Grep
                 continue;
             }
 
-            Psl\invariant(array_is_list($cur), '$cur is not a list<int, mixed>.');
-
             // We need to add +1 to the line number as
             // arrays start by 0 and there is no such thing
             // as a line 0.
