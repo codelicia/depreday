@@ -24,7 +24,7 @@ final class ExtractDateTime
 
         $date = DateTimeImmutable::createFromFormat('Y-m-d', $matches[1]);
 
-        Assert::notFalse($date);
+        Psl\invariant(false !== $date, 'Malformed DateTimeImmutable created.');
 
         return $date;
     }
