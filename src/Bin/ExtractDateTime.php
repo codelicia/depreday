@@ -7,6 +7,7 @@ namespace Codelicia\Depreday\Bin;
 use DateTimeImmutable;
 use Psl;
 
+use function array_key_exists;
 use function preg_match;
 
 final class ExtractDateTime

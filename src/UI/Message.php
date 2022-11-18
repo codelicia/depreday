@@ -6,10 +6,11 @@ namespace Codelicia\Depreday\UI;
 
 use DateInterval;
 use Exception;
-use Symfony\Component\Console\Output\OutputInterface;
 use Psl;
+use Symfony\Component\Console\Output\OutputInterface;
 
 use function count;
+use function is_int;
 use function random_int;
 use function sprintf;
 

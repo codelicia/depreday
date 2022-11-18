@@ -13,12 +13,14 @@ use Codelicia\Depreday\UI\Logo;
 use Codelicia\Depreday\UI\Message;
 use Codelicia\Depreday\UI\Phrases;
 use DateTimeImmutable;
+use Psl;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Psl;
 
 use function array_map;
+use function is_array;
+use function is_string;
 
 final class App
 {

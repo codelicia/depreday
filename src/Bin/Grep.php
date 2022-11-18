@@ -7,7 +7,6 @@ namespace Codelicia\Depreday\Bin;
 use ArrayObject;
 use Codelicia\Depreday\FileLine;
 use Symfony\Component\Finder\Finder;
-use Psl;
 
 use function array_filter;
 use function array_keys;

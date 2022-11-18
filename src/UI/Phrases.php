@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Codelicia\Depreday\UI;
 
-use Exception;
-
-use function count;
-use function random_int;
+use function array_rand;
 
 final class Phrases
 {
