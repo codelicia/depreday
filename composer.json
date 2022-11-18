@@ -36,7 +36,8 @@
         "doctrine/coding-standard": "^9.0.0",
         "phpunit/phpunit": "^9.1",
         "roave/security-advisories": "dev-master",
-        "vimeo/psalm": "^4.3"
+        "vimeo/psalm": "^4.3",
+        "maglnet/composer-require-checker": "^4.2"
     },
     "bin": [
         "bin/depreday"

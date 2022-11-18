@@ -16,7 +16,7 @@ use DateTimeImmutable;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Webmozart\Assert\Assert;
+use Psl;
 
 use function array_map;
 
@@ -39,10 +39,9 @@ final class App
         $extension        = $input->getOption('extension');
         $exclude          = $input->getOption('exclude');
 
-        // @todo(malukenho): move to PSL
-        Assert::isArray($exclude);
-        Assert::string($extension);
-        Assert::string($currentDirectory);
+        Psl\invariant(is_array($exclude), '$exclude must be an array.');
+        Psl\invariant(is_string($extension), '$extension must be a string.');
+        Psl\invariant(is_string($currentDirectory), '$currentDirectory must be a string.');
 
         array_map([$output, 'writeln'], Logo::logoMap());
 
