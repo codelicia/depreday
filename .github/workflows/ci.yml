@@ -32,3 +32,6 @@ jobs:
 
       - name: psalm
         run: ./vendor/bin/psalm
+
+      - name: check dependencies
+        run: ./vendor/bin/composer-require-checker check ./composer.json
