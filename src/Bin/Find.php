@@ -5,16 +5,18 @@ declare(strict_types=1);
 namespace Codelicia\Depreday\Bin;
 
 use Symfony\Component\Finder\Finder;
+use Psl\Filesystem;
+use Psl\Vec;
+use Psl\Str;
 
-use function array_map;
-use function basename;
 use function dirname;
-use function is_dir;
-use function sprintf;
 
 final class Find
 {
-    /** @psalm-param list<string> $supportedExtensions */
+    /**
+     * @psalm-param non-empty-string $directoryOrFile
+     * @psalm-param list<string> $supportedExtensions
+     */
     public function __construct(
         private readonly string $directoryOrFile,
         private readonly array $supportedExtensions
@@ -23,15 +25,16 @@ final class Find
 
     private function getDirectory(): string
     {
-        return is_dir($this->directoryOrFile) ? $this->directoryOrFile : dirname($this->directoryOrFile);
+        // @todo(malukenho): dirname?
+        return Filesystem\is_directory($this->directoryOrFile) ? $this->directoryOrFile : dirname($this->directoryOrFile);
     }
 
     /** @return string[] */
     private function getFeatureMatch(): array
     {
-        return is_dir($this->directoryOrFile)
-            ? array_map(static fn ($x) => sprintf('*.%s', $x), $this->supportedExtensions)
-            : [basename($this->directoryOrFile)];
+        return Filesystem\is_directory($this->directoryOrFile)
+            ? Vec\map($this->supportedExtensions, static fn ($x) => Str\format('*.%s', $x))
+            : [Filesystem\get_basename($this->directoryOrFile)];
     }
 
     /** @psalm-param list<string> $excludeDirs */
