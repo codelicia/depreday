@@ -33,7 +33,7 @@
         "azjezz/psl": "^2.1"
     },
     "require-dev": {
-        "doctrine/coding-standard": "^9.0.0",
+        "doctrine/coding-standard": "^9.0.0 || ^10.0.0",
         "phpunit/phpunit": "^9.1",
         "roave/security-advisories": "dev-master",
         "vimeo/psalm": "^4.3",
