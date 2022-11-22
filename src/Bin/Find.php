@@ -9,8 +9,6 @@ use Psl\Filesystem;
 use Psl\Vec;
 use Psl\Str;
 
-use function dirname;
-
 final class Find
 {
     /**
@@ -25,8 +23,9 @@ final class Find
 
     private function getDirectory(): string
     {
-        // @todo(malukenho): dirname?
-        return Filesystem\is_directory($this->directoryOrFile) ? $this->directoryOrFile : dirname($this->directoryOrFile);
+        return Filesystem\is_directory($this->directoryOrFile)
+            ? $this->directoryOrFile
+            : Filesystem\get_directory($this->directoryOrFile);
     }
 
     /** @return string[] */
