@@ -6,9 +6,9 @@ namespace Codelicia\Depreday\Bin;
 
 use ArrayObject;
 use Codelicia\Depreday\FileLine;
-use Symfony\Component\Finder\Finder;
-use Psl\Vec;
 use Psl\Str;
+use Psl\Vec;
+use Symfony\Component\Finder\Finder;
 
 use function stripos;
 
