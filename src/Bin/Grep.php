@@ -6,12 +6,10 @@ namespace Codelicia\Depreday\Bin;
 
 use ArrayObject;
 use Codelicia\Depreday\FileLine;
+use Psl\Str;
+use Psl\Vec;
 use Symfony\Component\Finder\Finder;
 
-use function array_filter;
-use function array_keys;
-use function array_map;
-use function explode;
 use function stripos;
 
 use const PHP_EOL;
@@ -27,9 +25,10 @@ final class Grep
         $collection = new ArrayObject();
 
         foreach ($finder as $file) {
-            $lines = explode(PHP_EOL, $file->getContents());
+            $lines = Str\split($file->getContents(), PHP_EOL);
 
-            $cur = array_keys(array_filter(array_map(static fn (string $line) => stripos($line, $pattern), $lines)));
+            // @todo(malukenho): search for stripos on vendor/spl dir
+            $cur = Vec\keys(Vec\filter(Vec\map($lines, static fn (string $line) => stripos($line, $pattern))));
 
             if ($cur === []) {
                 continue;

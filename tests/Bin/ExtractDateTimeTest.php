@@ -18,7 +18,6 @@ final class ExtractDateTimeTest extends TestCase
         $extractor = new ExtractDateTime();
 
         self::assertSame($expected, $extractor($line)->format('Y-m-d'));
-
     }
 
     public function validLines(): array

@@ -31,7 +31,7 @@ use Symfony\Component\Console\Input\InputOption;
     /** @var non-empty-string $autoloadPath */
     $autoloadPath = realpath(current($autoload));
 
-    Psl\invariant(file_exists($autoloadPath), 'Expected $autoloadPath to exist. Did you install the composer dependencies?');
+    assert(file_exists($autoloadPath), 'Expected $autoloadPath to exist. Did you install the composer dependencies?');
 
     require $autoloadPath;
 
