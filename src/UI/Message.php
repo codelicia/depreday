@@ -9,9 +9,8 @@ use Exception;
 use Psl;
 use Symfony\Component\Console\Output\OutputInterface;
 
-use function count;
+use function array_rand;
 use function is_int;
-use function random_int;
 use function sprintf;
 
 final class Message
@@ -48,7 +47,7 @@ final class Message
     /** @throws Exception */
     public function success(OutputInterface $output): void
     {
-        $output->writeln(sprintf("%s\n\n", self::SUCCESS[random_int(0, count(self::SUCCESS) - 1)]));
+        $output->writeln(sprintf("%s\n\n", array_rand(self::SUCCESS)));
     }
 
     public function done(OutputInterface $output): void
