@@ -44,6 +44,7 @@ final class App
         Psl\invariant(is_array($exclude), '$exclude must be an array.');
         Psl\invariant(is_string($extension), '$extension must be a string.');
         Psl\invariant(is_string($currentDirectory), '$currentDirectory must be a string.');
+        Psl\invariant($currentDirectory !== '', '$currentDirectory must NOT be an empty string.');
 
         array_map([$output, 'writeln'], Logo::logoMap());
 
