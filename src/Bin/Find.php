@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Codelicia\Depreday\Bin;
 
-use Symfony\Component\Finder\Finder;
 use Psl\Filesystem;
-use Psl\Vec;
 use Psl\Str;
+use Psl\Vec;
+use Symfony\Component\Finder\Finder;
 
 final class Find
 {
