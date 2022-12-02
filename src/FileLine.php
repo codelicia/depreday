@@ -10,7 +10,7 @@ final class FileLine
 {
     public function __construct(
         public readonly int $line,
-        private readonly SplFileInfo $file
+        private readonly SplFileInfo $file,
     ) {
     }
 

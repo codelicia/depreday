@@ -31,7 +31,7 @@ final class Message
         string $fileRealPath,
         int $cursorPosition,
         string $phrase,
-        DateInterval $dateInterval
+        DateInterval $dateInterval,
     ): void {
         if ($dateInterval->days === 0) {
             return;

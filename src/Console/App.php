@@ -68,7 +68,7 @@ final class App
                 $file->getRelativePathname(),
                 $file->line,
                 $this->phrases->random(),
-                $lastChange->diff($this->currentDate)
+                $lastChange->diff($this->currentDate),
             );
         }
 

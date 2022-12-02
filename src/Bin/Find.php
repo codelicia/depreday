@@ -17,7 +17,7 @@ final class Find
      */
     public function __construct(
         private readonly string $directoryOrFile,
-        private readonly array $supportedExtensions
+        private readonly array $supportedExtensions,
     ) {
     }
 
