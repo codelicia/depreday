@@ -1,5 +1,5 @@
 --TEST--
-Validate the happy path by checking the deprecations in the project.
+Validate the happy path by checking the deprecations in the source path.
 --FILE--
 <?php
 
@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 (static fn () => require __DIR__ . '/../../vendor/autoload.php')();
 
-system('php bin/depreday');
+system('php bin/depreday src');
 
 --EXPECTF--
 )  (  )  (
@@ -21,10 +21,7 @@ system('php bin/depreday');
 Finding deprecations in the directory: %s
 
 
-tests/unit/Bin/ExtractDateTimeTest.php:1
-%s
-
-src/Console/App.php:1
+Console/App.php:1
 %s
 
 done.
