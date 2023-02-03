@@ -34,7 +34,7 @@
     },
     "require-dev": {
         "doctrine/coding-standard": "^11.0.0",
-        "phpunit/phpunit": "^9.1",
+        "phpunit/phpunit": "^10.0",
         "roave/security-advisories": "dev-master",
         "vimeo/psalm": "^5.0",
         "maglnet/composer-require-checker": "^4.2"
