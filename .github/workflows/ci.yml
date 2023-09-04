@@ -35,4 +35,4 @@ jobs:
         run: ./vendor/bin/composer-require-checker check ./composer.json
 
       - name: qodana
-        uses: JetBrains/qodana-action@v2023.2.1
+        uses: JetBrains/qodana-action@32c3156f63f31a54dece4ce3e32dbb767c38bb61 # v2023.2.6
